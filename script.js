@@ -1,5 +1,5 @@
 //console.log("hello");
-
+//Start of the Code Quiz, when the start button is clicked the HTML container is hidden
 var startRow = document.getElementById("start-page");
 var startButton = document.getElementById("start-btn");
 var quesOptions = document.getElementById("ques-selections");
@@ -23,3 +23,9 @@ function renderQuesOptions() {
     quesOptions.append(button);
   }
 }
+
+quesOptions.addEventListener("click", function (event) {
+  if (event.target.matches("button")) {
+    console.log("you clicked the button");
+  }
+});

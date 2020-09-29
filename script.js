@@ -23,9 +23,11 @@ function renderQuesOptions() {
     quesOptions.append(button);
   }
 }
-
+//identifies the selected button
 quesOptions.addEventListener("click", function (event) {
   if (event.target.matches("button")) {
     console.log("you clicked the button");
+    var selectedChoice = event.target.getAttribute("data-value");
+    console.log(selectedChoice);
   }
 });

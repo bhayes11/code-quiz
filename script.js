@@ -2,58 +2,51 @@
 //Start of the Code Quiz, when the start button is clicked the HTML container is hidden
 var startRow = document.getElementById("start-page");
 var startButton = document.getElementById("start-btn");
-var quesOneSelections = document.getElementById("ques-selections-one");
-var quesOneOptions = document.getElementById("ques-options-one");
-var quesTwoSelections = document.getElementById("ques-selections-two");
-var quesTwoOptions = document.getElementById("ques-options-two");
+var selections = document.getElementById("selection");
+var options = document.getElementById("options");
 
-function renderQuesOneOptions() {
-  var availableChoicesOne = ["strings", "booleans", "alerts", "numbers"];
+var currentStage = 0;
+var stages = [
+  {
+    name: "Commonly used data types DO NOT include:",
+    options: ["strings", "booleans", "alerts", "numbers"],
+  },
+  {
+    name: "The condition in an if / else statement is enclosed within ____.",
+    options: ["quotes", "curly brackets", "parentheses", "square brackets"],
+  },
+];
 
-  for (var i = 0; i < availableChoicesOne.length; i++) {
+function renderOptions(array) {
+  for (var i = 0; i < array.length; i++) {
     var button = document.createElement("button");
-
+    //console.log(array);
     button.setAttribute("class", "btn btn-info");
-    button.textContent = availableChoicesOne[i];
-    button.setAttribute("data-value", availableChoicesOne[i]);
+    button.textContent = array[i];
+    button.setAttribute("data-value", array[i]);
 
-    quesOneOptions.append(button);
+    options.append(button);
   }
 }
 
-function renderQuesTwoOptions() {
-  var availableChoicesTwo = [
-    "quotes",
-    "curly brackets",
-    "parentheses",
-    "square brackets",
-  ];
-
-  for (var i = 0; i < availableChoicesTwo.length; i++) {
-    var button = document.createElement("button");
-
-    button.setAttribute("class", "btn btn-info");
-    button.textContent = availableChoicesTwo[i];
-    button.setAttribute("data-value", availableChoicesTwo[i]);
-
-    quesTwoOptions.append(button);
-  }
-}
 //identifies the selected button
-quesOneOptions.addEventListener("click", function (event) {
+options.addEventListener("click", function (event) {
   if (event.target.matches("button")) {
     console.log("you clicked the button");
-    var selectedChoiceOne = event.target.getAttribute("data-value");
-    console.log(selectedChoiceOne);
+    var selectedChoice = event.target.getAttribute("data-value");
+    console.log(selectedChoice);
 
     setTimeout(function () {
-      quesOneOptions.textContent = "";
-      renderQuesTwoOptions();
-    }, 1000);
+      currentStage++;
+      var optionsToDisplay = stages[currentStage].options;
+      Options.textContent = "";
+      renderOptions(optionsToDisplay);
+    }, 2000);
   }
 });
 
 startButton.addEventListener("click", function () {
   startRow.style.display = "none";
-  renderQuesOneOptions();
+  var optionsToDisplay = stages[currentStage].options;
+  renderOptions(optionsToDisplay);
 });

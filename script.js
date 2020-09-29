@@ -2,32 +2,57 @@
 //Start of the Code Quiz, when the start button is clicked the HTML container is hidden
 var startRow = document.getElementById("start-page");
 var startButton = document.getElementById("start-btn");
-var quesOptions = document.getElementById("ques-selections");
-var quesOptions = document.getElementById("ques-options");
+var quesOneSelections = document.getElementById("ques-selections-one");
+var quesOneOptions = document.getElementById("ques-options-one");
+var quesTwoSelections = document.getElementById("ques-selections-two");
+var quesTwoOptions = document.getElementById("ques-options-two");
 
 startButton.addEventListener("click", function () {
   startRow.style.display = "none";
-  renderQuesOptions();
+  renderQuesOneOptions();
 });
 
-function renderQuesOptions() {
-  var availableChoices = ["strings", "booleans", "alerts", "numbers"];
+function renderQuesOneOptions() {
+  var availableChoicesOne = ["strings", "booleans", "alerts", "numbers"];
 
-  for (var i = 0; i < availableChoices.length; i++) {
+  for (var i = 0; i < availableChoicesOne.length; i++) {
     var button = document.createElement("button");
 
     button.setAttribute("class", "btn btn-info");
-    button.textContent = availableChoices[i];
-    button.setAttribute("data-value", availableChoices[i]);
+    button.textContent = availableChoicesOne[i];
+    button.setAttribute("data-value", availableChoicesOne[i]);
 
-    quesOptions.append(button);
+    quesOneOptions.append(button);
+  }
+}
+
+function renderQuesTwoOptions() {
+  var availableChoicesTwo = [
+    "quotes",
+    "curly brackets",
+    "parentheses",
+    "square brackets",
+  ];
+
+  for (var i = 0; i < availableChoicesTwo.length; i++) {
+    var button = document.createElement("button");
+
+    button.setAttribute("class", "btn btn-info");
+    button.textContent = availableChoicesTwo[i];
+    button.setAttribute("data-value", availableChoicesTwo[i]);
+
+    quesTwoOptions.append(button);
   }
 }
 //identifies the selected button
-quesOptions.addEventListener("click", function (event) {
+quesOneOptions.addEventListener("click", function (event) {
   if (event.target.matches("button")) {
     console.log("you clicked the button");
-    var selectedChoice = event.target.getAttribute("data-value");
-    console.log(selectedChoice);
+    var selectedChoiceOne = event.target.getAttribute("data-value");
+    console.log(selectedChoiceOne);
+
+    setTimeout(function () {
+      renderQuesTwoOptions();
+    }, 1000);
   }
 });

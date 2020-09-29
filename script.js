@@ -7,11 +7,6 @@ var quesOneOptions = document.getElementById("ques-options-one");
 var quesTwoSelections = document.getElementById("ques-selections-two");
 var quesTwoOptions = document.getElementById("ques-options-two");
 
-startButton.addEventListener("click", function () {
-  startRow.style.display = "none";
-  renderQuesOneOptions();
-});
-
 function renderQuesOneOptions() {
   var availableChoicesOne = ["strings", "booleans", "alerts", "numbers"];
 
@@ -52,7 +47,13 @@ quesOneOptions.addEventListener("click", function (event) {
     console.log(selectedChoiceOne);
 
     setTimeout(function () {
+      quesOneOptions.textContent = "";
       renderQuesTwoOptions();
     }, 1000);
   }
+});
+
+startButton.addEventListener("click", function () {
+  startRow.style.display = "none";
+  renderQuesOneOptions();
 });

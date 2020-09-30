@@ -13,11 +13,11 @@ The user is challenged to take a multiple choice quiz that is based on JavaScrip
 
 View the website [here](https://bhayes11.github.io/code-quiz/)
 
-Prompt ![Prompt](/assets/quiz1.png)
+Start ![Prompt](/assets/quiz1.png)
 
-Confirm ![Confirm](/assets/quiz2.png)
+Questions ![Confirm](/assets/quiz3.png)
 
-Generated Password ![Generated Password](/assets/quiz3.png)
+Questions ![Generated Password](/assets/quiz2.png)
 
 ## License
 

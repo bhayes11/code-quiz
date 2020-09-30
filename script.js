@@ -36,6 +36,25 @@ var stages = [
     options: ["JavaScript", "terminal / bash", "for loops", "console log"],
   },
 ];
+//Timer function
+var timeEl = document.querySelector(".time");
+var timer = document.getElementById("timer");
+var secondsLeft = 76;
+
+function setTime() {
+  var timerInterval = setInterval(function () {
+    secondsLeft--;
+    timeEl.textContent = "Time: " + secondsLeft;
+
+    if (secondsLeft === 0) {
+      clearInterval(timerInterval);
+      sendMessage();
+    }
+  }, 1000);
+}
+
+setTime();
+
 //Loops through the arrays
 function renderOptions(array) {
   for (var i = 0; i < array.length; i++) {

@@ -8,15 +8,16 @@ var options = document.getElementById("options");
 var currentStage = 0;
 var stages = [
   {
-    name: "Commonly used data types DO NOT include:",
+    question: "Commonly used data types DO NOT include:",
     options: ["strings", "booleans", "alerts", "numbers"],
   },
   {
-    name: "The condition in an if / else statement is enclosed within ____.",
+    question:
+      "The condition in an if / else statement is enclosed within ____.",
     options: ["quotes", "curly brackets", "parentheses", "square brackets"],
   },
   {
-    name: "Arrays in JavaScript can be used to store ____.",
+    question: "Arrays in JavaScript can be used to store ____.",
     options: [
       "numbers and strings",
       "other arrays",
@@ -25,12 +26,12 @@ var stages = [
     ],
   },
   {
-    name:
+    question:
       "String values must be enclosed within ____ when being assigned to variables.",
     options: ["commas", "curly brackets", "quotes", "parentheses"],
   },
   {
-    name:
+    question:
       "A very useful tool for used during development and debugging printing content to the debugger is:",
     options: ["JavaScript", "terminal / bash", "for loops", "console log"],
   },

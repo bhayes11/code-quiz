@@ -15,8 +15,27 @@ var stages = [
     name: "The condition in an if / else statement is enclosed within ____.",
     options: ["quotes", "curly brackets", "parentheses", "square brackets"],
   },
+  {
+    name: "Arrays in JavaScript can be used to store ____.",
+    options: [
+      "numbers and strings",
+      "other arrays",
+      "booleans",
+      "all of the above",
+    ],
+  },
+  {
+    name:
+      "String values must be enclosed within ____ when being assigned to variables.",
+    options: ["commas", "curly brackets", "quotes", "parentheses"],
+  },
+  {
+    name:
+      "A very useful tool for used during development and debugging printing content to the debugger is:",
+    options: ["JavaScript", "terminal / bash", "for loops", "console log"],
+  },
 ];
-
+//Loops through the arrays
 function renderOptions(array) {
   for (var i = 0; i < array.length; i++) {
     var button = document.createElement("button");
@@ -39,7 +58,7 @@ options.addEventListener("click", function (event) {
     setTimeout(function () {
       currentStage++;
       var optionsToDisplay = stages[currentStage].options;
-      Options.textContent = "";
+      options.textContent = "";
       renderOptions(optionsToDisplay);
     }, 2000);
   }

@@ -2,7 +2,7 @@
 //Start of the Code Quiz, when the start button is clicked the HTML container is hidden
 var startRow = document.getElementById("start-page");
 var startButton = document.getElementById("start-btn");
-var selections = document.getElementById("selection");
+var questionsArea = document.getElementById("questions-area");
 var options = document.getElementById("options");
 
 var currentStage = 0;
@@ -58,12 +58,14 @@ setTime();
 //Loops through the arrays
 function renderOptions(array) {
   for (var i = 0; i < array.length; i++) {
+    questionsArea.HTML = "";
     var button = document.createElement("button");
     //console.log(array);
     button.setAttribute("class", "btn btn-info");
     button.textContent = array[i];
     button.setAttribute("data-value", array[i]);
-
+    var userQuestion = stages[currentStage].question;
+    questionsArea.textContent = userQuestion;
     options.append(button);
   }
 }
